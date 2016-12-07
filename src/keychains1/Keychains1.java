@@ -19,6 +19,7 @@ public class Keychains1 {
     public static int nmbrKeychains;
     public static int pricePerKeychain = 10;
     public static int choice;
+    
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
@@ -34,26 +35,15 @@ public class Keychains1 {
         while (choice != 4) {
             if (choice == 1) {
                 add_keychains(nmbrKeychains);
-
-                System.out.println("Ye Olde Keychain Shoppe");
-                System.out.println("1. Add Keychains to Order");
-                System.out.println("2. Remove Keychains from Order");
-                System.out.println("3. View Current Order");
-                System.out.println("4. Checkout");
-                System.out.println("\nPlease enter your choice: ");
                 choice = keyboard.nextInt();
 
             } else if (choice == 2) {
                 remove_keychains(nmbrKeychains);
-                System.out.println("Ye Olde Keychain Shoppe");
-                System.out.println("1. Add Keychains to Order");
-                System.out.println("2. Remove Keychains from Order");
-                System.out.println("3. View Current Order");
-                System.out.println("4. Checkout");
-                System.out.println("\nPlease enter your choice: ");
                 choice = keyboard.nextInt();
+
             } else if (choice == 3) {
-                view_order();
+                view_order(nmbrKeychains);
+                choice = keyboard.nextInt();
 
             }
         }
@@ -65,7 +55,7 @@ public class Keychains1 {
         Scanner keyboard = new Scanner(System.in);
         System.out.print("\nYou have " + nmbrKeychains + " keychains. How many do you want to add? ");
         int addKeychains = keyboard.nextInt();
-        
+
         //Calculation to add keychains
         nmbrKeychains = addKeychains + nmbrKeychains;
 
@@ -76,29 +66,58 @@ public class Keychains1 {
         System.out.println("3. View Current Order");
         System.out.println("4. Checkout");
         System.out.print("\nPlease enter your choice: ");
-        choice = keyboard.nextInt();
+
         return nmbrKeychains;
 
     }
 
-    public static int remove_keychains(int nmbrKeychains) {
+    public static int remove_keychains(int choice) {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\nYou have " + nmbrKeychains + " keychains. How many do you want to remove? ");
         int removeKeychains = keyboard.nextInt();
-        
+
         //Calculation to subtract keychains
         nmbrKeychains = nmbrKeychains - removeKeychains;
+
         System.out.println("You now have " + nmbrKeychains + " keychains.\n");
+        System.out.println("Ye Olde Keychain Shoppe");
+        System.out.println("1. Add Keychains to Order");
+        System.out.println("2. Remove Keychains from Order");
+        System.out.println("3. View Current Order");
+        System.out.println("4. Checkout");
+        System.out.print("\nPlease enter your choice: ");
+
         return nmbrKeychains;
 
     }
 
-    public static void view_order() {
-        System.out.println("\nVIEW ORDDER\n");
+    public static int view_order(int choice) {
+        int totalCost = nmbrKeychains * pricePerKeychain;
+        System.out.println("You now have " + nmbrKeychains + " keychains.\n");
+        System.out.println("Keychains cost $" + pricePerKeychain + " each.");
+        System.out.println("Total cost is $" + totalCost + ".\n");
+        
+        System.out.println("Ye Olde Keychain Shoppe");
+        System.out.println("1. Add Keychains to Order");
+        System.out.println("2. Remove Keychains from Order");
+        System.out.println("3. View Current Order");
+        System.out.println("4. Checkout");
+        System.out.print("\nPlease enter your choice: ");
+
+        return nmbrKeychains;
     }
 
     public static void checkout() {
+        Scanner keyboard = new Scanner(System.in);
+        int totalCost = nmbrKeychains * pricePerKeychain;
         System.out.println("\nCHECKOUT");
+        System.out.print("What is your name? ");
+        String name = keyboard.next();
+        System.out.println("You now have " + nmbrKeychains + " keychains.\n");
+        System.out.println("Keychains cost $" + pricePerKeychain + " each.");
+        System.out.println("Total cost is $" + totalCost + ".\n");
+        System.out.println("Thanks for your order, " + name + "!");
+        
     }
 
 }
