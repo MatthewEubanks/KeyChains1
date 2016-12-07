@@ -33,18 +33,21 @@ public class Keychains1 {
         choice = keyboard.nextInt();
 
         while (choice != 4) {
-            if (choice == 1) {
-                add_keychains(nmbrKeychains);
-                choice = keyboard.nextInt();
-
-            } else if (choice == 2) {
-                remove_keychains(nmbrKeychains);
-                choice = keyboard.nextInt();
-
-            } else if (choice == 3) {
-                view_order(nmbrKeychains);
-                choice = keyboard.nextInt();
-
+            switch (choice) {
+                case 1:
+                    add_keychains(nmbrKeychains);
+                    choice = keyboard.nextInt();
+                    break;
+                case 2:
+                    remove_keychains(nmbrKeychains);
+                    choice = keyboard.nextInt();
+                    break;
+                case 3:
+                    view_order(nmbrKeychains);
+                    choice = keyboard.nextInt();
+                    break;
+                default:
+                    break;
             }
         }
         checkout();
