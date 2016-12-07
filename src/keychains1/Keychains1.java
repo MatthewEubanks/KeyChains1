@@ -29,9 +29,16 @@ public class Keychains1 {
         System.out.println("2. Remove Keychains from Order");
         System.out.println("3. View Current Order");
         System.out.println("4. Checkout");
+        
+        boolean valid_input = false;
+        while(!valid_input){
         System.out.print("\nPlease enter your choice: ");
-        choice = keyboard.nextInt();
-
+        String temp_in = keyboard.next();
+        if ("1234".indexOf(temp_in)!= -1){
+            choice = Integer.parseInt(temp_in);
+            valid_input = true;
+        }
+        }
         while (choice != 4) {
             switch (choice) {
                 case 1:
